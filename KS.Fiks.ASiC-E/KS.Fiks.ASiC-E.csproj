@@ -7,7 +7,7 @@
     <RootNamespace>KS.Fiks.ASiC_E</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Title>Library for handling ASiC-E packages</Title>
-    <Authors>Ks-Kommunesektorens Organisasjon</Authors>
+    <Authors>Ks-Kommunesektorens Organisasjon, AElvik</Authors>
     <Copyright>Ks-Kommunesektorens Organisasjon</Copyright>
     <PackageProjectUrl>https://github.com/AElvik/fiks-asice-dotnet</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/ks-no/fiks-asice-dotnet/raw/master/LICENSE</PackageLicenseUrl>
@@ -21,6 +21,7 @@
     <AssemblyVersion>1.0.3.0</AssemblyVersion>
     <FileVersion>1.0.3.0</FileVersion>
     <Version>1.0.3</Version>
+    <Company>Ks-Kommunesektorens Organisasjon, AElvik</Company>
   </PropertyGroup>
 
   <ItemGroup>
