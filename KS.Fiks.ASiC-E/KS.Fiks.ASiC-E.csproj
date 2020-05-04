@@ -12,7 +12,6 @@
     <PackageProjectUrl>https://github.com/AElvik/fiks-asice-dotnet</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/ks-no/fiks-asice-dotnet/raw/master/LICENSE</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/AElvik/fiks-asice-dotnet</RepositoryUrl>
-    <PackageIconUrl>https://ks-no.github.io/images/favicon.png</PackageIconUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>FIKS</PackageTags>
     <TargetFrameworks>netstandard2.1;netcoreapp3.1;net472</TargetFrameworks>
@@ -22,6 +21,8 @@
     <FileVersion>1.0.3.0</FileVersion>
     <Version>1.0.3</Version>
     <Company>Ks-Kommunesektorens Organisasjon, AElvik</Company>
+    <Product>AE.Fiks.ASiC-E</Product>
+    <PackageId>AE.Fiks.ASiC-E</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
