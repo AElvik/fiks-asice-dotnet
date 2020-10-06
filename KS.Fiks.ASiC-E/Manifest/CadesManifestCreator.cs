@@ -13,7 +13,7 @@ namespace KS.Fiks.ASiC_E.Manifest
 {
     public class CadesManifestCreator : IManifestCreator
     {
-        private static readonly Encoding Encoding = Encoding.UTF8;
+        private static readonly Encoding Encoding = new UTF8Encoding(false);
 
         private readonly bool addSignatureFile;
 
