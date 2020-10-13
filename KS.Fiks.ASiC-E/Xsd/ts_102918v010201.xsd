@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 2019-03-05: Dowloaded from https://github.com/difi/begrep-SikkerDigitalPost/blob/master/xsd/asic-e/ts_102918v010201.xsd -->
-<xsd:schema targetNamespace="http://uri.etsi.org/2918/v1.2.1#"
-			xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns="http://uri.etsi.org/2918/v1.2.1#"
+<xsd:schema targetNamespace="http://uri.etsi.org/02918/v1.2.1#"
+			xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns="http://uri.etsi.org/02918/v1.2.1#"
 			xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
 			attributeFormDefault="unqualified">
 	<xsd:import namespace="http://www.w3.org/2000/09/xmldsig#"

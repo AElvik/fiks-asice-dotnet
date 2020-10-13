@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ASiCManifest xmlns="http://uri.etsi.org/2918/v1.2.1#" xmlns:ns2="http://www.w3.org/2000/09/xmldsig#">
+<ASiCManifest xmlns="http://uri.etsi.org/02918/v1.2.1#" xmlns:ns2="http://www.w3.org/2000/09/xmldsig#">
     <SigReference URI="META-INF/signature-f741f40a-bfa5-477b-83ca-384ae074e002.p7s" MimeType="application/x-pkcs7-signature"/>
     <DataObjectReference URI="bii-envelope.xml" MimeType="text/xml">
         <ns2:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256"/>

@@ -35,7 +35,7 @@ namespace KS.Fiks.ASiC_E.Model
             SignatureCertificate = signatureCertificate;
         }
 
-        public static AsiceArchive Create(Stream zipOutStream, IManifestCreator manifestCreator, ICertificateHolder signatureCertificateHolder)
+        public static AsiceArchive Create(Stream zipOutStream, IManifestCreator manifestCreator, ICertificateHolder signatureCertificateHolder, MessageDigestAlgorithm messageDigestAlgorithm)
         {
             Log.Debug("Creating ASiC-e Zip");
             var zipArchive = new ZipArchive(zipOutStream, ZipArchiveMode.Create, false, Encoding.UTF8);
@@ -49,7 +49,7 @@ namespace KS.Fiks.ASiC_E.Model
                 stream.Write(contentAsBytes, 0, contentAsBytes.Length);
             }
 
-            return new AsiceArchive(zipArchive, manifestCreator, MessageDigestAlgorithm.SHA256, signatureCertificateHolder);
+            return new AsiceArchive(zipArchive, manifestCreator, messageDigestAlgorithm, signatureCertificateHolder);
         }
 
         /// <summary>

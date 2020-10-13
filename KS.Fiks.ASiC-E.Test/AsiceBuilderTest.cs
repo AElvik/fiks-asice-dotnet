@@ -41,7 +41,7 @@ namespace KS.Fiks.ASiC_E.Test
             using (var fileStream = File.OpenRead("small.pdf"))
             {
                 using (var asiceBuilder =
-                    AsiceBuilder.Create(zipStream, MessageDigestAlgorithm.SHA256, signingCertificates))
+                    AsiceBuilder.Create(zipStream, MessageDigestAlgorithm.SHA256Enc, signingCertificates))
                 {
                     asiceBuilder.Should().NotBeNull();
 
@@ -53,6 +53,8 @@ namespace KS.Fiks.ASiC_E.Test
 
                 zippedBytes = zipStream.ToArray();
             }
+
+            File.WriteAllBytes(@"c:\temp\as.zip", zippedBytes);
 
             this.logFixture.GetLog<AsiceBuilderTest>().Info($"Created zip containing {zippedBytes.Length} bytes");
             zippedBytes.Should().HaveCountGreaterThan(0);

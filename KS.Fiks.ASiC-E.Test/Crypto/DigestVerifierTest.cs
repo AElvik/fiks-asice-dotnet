@@ -14,13 +14,13 @@ namespace KS.Fiks.ASiC_E.Test.Crypto
 
         private static readonly DeclaredDigestFile FileOne = new DeclaredDigestFile(
             new byte[] { 0, 1, 1 },
-            MessageDigestAlgorithm.SHA256,
+            MessageDigestAlgorithm.SHA256Desig,
             "fileOne.txt",
             MimeType);
 
         private static readonly DeclaredDigestFile FileTwo = new DeclaredDigestFile(
             new byte[] { 1, 1, 1 },
-            MessageDigestAlgorithm.SHA256,
+            MessageDigestAlgorithm.SHA256Desig,
             "fileTwo.txt",
             MimeType);
 

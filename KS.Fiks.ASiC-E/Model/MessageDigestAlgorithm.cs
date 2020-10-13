@@ -40,7 +40,8 @@ namespace KS.Fiks.ASiC_E.Model
         public static readonly Uri UriSHA384XmlDsig = new Uri(UriStringSha384XmlDsig);
         public static readonly Uri UriSHA512XmlEnc = new Uri(UriStringSHA512XmlEnc);
         public static readonly Uri UriSHA512XmlDsig = new Uri(UriStringSHA512XmlDsig);
-        public static readonly MessageDigestAlgorithm SHA256 = new MessageDigestAlgorithm(NameSHA256, UriSHA256XmlDsig);
+        public static readonly MessageDigestAlgorithm SHA256Desig = new MessageDigestAlgorithm(NameSHA256, UriSHA256XmlDsig);
+        public static readonly MessageDigestAlgorithm SHA256Enc = new MessageDigestAlgorithm(NameSHA256, UriSHA256XmlEnc);
         public static readonly MessageDigestAlgorithm SHA384 = new MessageDigestAlgorithm(NameSHA384, UriSHA384XmlDsig);
         public static readonly MessageDigestAlgorithm SHA512 = new MessageDigestAlgorithm(NameSHA512, UriSHA512XmlDsig);
 
@@ -54,8 +55,9 @@ namespace KS.Fiks.ASiC_E.Model
             switch (uri.ToString())
             {
                 case UriStringSha256XmlEnc:
+                    return SHA256Enc;
                 case UriStringSha256XmlDsig:
-                    return SHA256;
+                    return SHA256Desig;
                 case UriStringSha384XmlEnc:
                 case UriStringSha384XmlDsig:
                     return SHA384;

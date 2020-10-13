@@ -42,7 +42,7 @@ namespace KS.Fiks.ASiC_E
             var cadesManifestCreator = signCertificate == null
                 ? CadesManifestCreator.CreateWithoutSignatureFile()
                 : CadesManifestCreator.CreateWithSignatureFile();
-            return new AsiceBuilder(AsiceArchive.Create(outStream, cadesManifestCreator, signCertificate), algorithm);
+            return new AsiceBuilder(AsiceArchive.Create(outStream, cadesManifestCreator, signCertificate, algorithm), algorithm);
         }
 
         public AsiceArchive Build()

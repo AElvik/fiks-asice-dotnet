@@ -34,7 +34,7 @@ namespace KS.Fiks.ASiC_E.Test.Model
         public void ProvideWithReferences()
         {
             const string FileName = "filename.txt";
-            var digestAlgorithm = MessageDigestAlgorithm.SHA256;
+            var digestAlgorithm = MessageDigestAlgorithm.SHA256Desig;
             var manifestType = new ASiCManifestType
             {
                 DataObjectReference = new[]

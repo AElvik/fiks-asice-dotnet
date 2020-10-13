@@ -16,7 +16,7 @@ namespace KS.Fiks.ASiC_E.Test.Manifest
         public void CreateCadesManifest()
         {
             var cadesManifestCreator = CadesManifestCreator.CreateWithoutSignatureFile();
-            var digestAlgorithm = MessageDigestAlgorithm.SHA256;
+            var digestAlgorithm = MessageDigestAlgorithm.SHA256Desig;
             var fileEntry = new AsicePackageEntry("my.pdf", MimeType.ForString("application/pdf"), digestAlgorithm);
             fileEntry.Digest = new DigestContainer(new byte[] { 0, 0, 1 }, digestAlgorithm);
             var entries = new[] { fileEntry };
@@ -42,18 +42,22 @@ namespace KS.Fiks.ASiC_E.Test.Manifest
         public void CreateCadesManifestIncludingSignature()
         {
             var cadesManifestCreator = CadesManifestCreator.CreateWithSignatureFile();
-            var fileEntry = new AsicePackageEntry("my.pdf", MimeType.ForString("application/pdf"), MessageDigestAlgorithm.SHA256);
-            fileEntry.Digest = new DigestContainer(new byte[] { 0, 0, 1 }, MessageDigestAlgorithm.SHA256);
-            var manifest = cadesManifestCreator.CreateManifest(new[] { fileEntry });
+            var fileEntry = new AsicePackageEntry("P.00987654321.001.P001.65013_File1.xml", MimeType.ForString("application/xml"), MessageDigestAlgorithm.SHA256Enc);
+            fileEntry.Digest = new DigestContainer(new byte[] { 0, 0, 1 }, MessageDigestAlgorithm.SHA256Enc);
+            var fileEntry2 = new AsicePackageEntry("ApprovalData/ApprovalData1.xml", MimeType.ForString("application/xml"), MessageDigestAlgorithm.SHA256Desig);
+            fileEntry2.Digest = new DigestContainer(new byte[] { 0, 0, 1 }, MessageDigestAlgorithm.SHA256Desig);
+            var manifest = cadesManifestCreator.CreateManifest(new[] { fileEntry, fileEntry2 });
             manifest.Should().NotBeNull()
                 .And
                 .BeOfType<ManifestContainer>();
             manifest.FileName.Should().Be(AsiceConstants.CadesManifestFilename);
+
+            File.WriteAllBytes(@"c:\temp\manifest.xml", manifest.Data.ToArray());
             var xmlManifest = DeserializeManifest(manifest.Data.ToArray());
             xmlManifest.Should().NotBeNull();
             xmlManifest.SigReference.Should().NotBeNull();
             xmlManifest.SigReference.MimeType.Should().Be(AsiceConstants.ContentTypeSignature);
-            xmlManifest.DataObjectReference.Should().HaveCount(1);
+            xmlManifest.DataObjectReference.Should().HaveCount(2);
         }
 
         private static ASiCManifestType DeserializeManifest(byte[] data)

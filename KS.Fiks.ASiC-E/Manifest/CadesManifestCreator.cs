@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -49,7 +50,14 @@ namespace KS.Fiks.ASiC_E.Manifest
             using (var xmlWriter = CreateXmlWriter(outStream))
             {
                 new XmlSerializer(typeof(ASiCManifestType)).Serialize(xmlWriter, manifest, CreateNamespaces());
-                return new ManifestContainer(AsiceConstants.CadesManifestFilename, outStream.ToArray(), signatureFileRef, ManifestSpec.Cades);
+
+                //Stupid whitespace manipulation to please DNB
+                var resultString = Encoding.UTF8.GetString(outStream.ToArray());
+                resultString = resultString.Replace(" />", "/>").Replace(" xmlns=\"http://uri.etsi.org/02918/v1.2.1#\"", "") + "\n";
+                var x = Encoding.UTF8.GetBytes(resultString);
+
+
+                return new ManifestContainer(AsiceConstants.CadesManifestFilename, x, signatureFileRef, ManifestSpec.Cades);
             }
         }
 
@@ -67,15 +75,17 @@ namespace KS.Fiks.ASiC_E.Manifest
                 Encoding = Encoding,
                 OmitXmlDeclaration = true,
                 ConformanceLevel = ConformanceLevel.Document,
-                Indent = true
+                Indent = true,
+                IndentChars = "    ",
+                NewLineChars = "\n"
             };
         }
 
         private static XmlSerializerNamespaces CreateNamespaces()
         {
             var ns = new XmlSerializerNamespaces();
-            ns.Add("cades", Namespaces.CadesAsicNamespace);
-            ns.Add("sig", Namespaces.XmlSignatureNamespace);
+            ns.Add("", Namespaces.CadesAsicNamespace);
+            ns.Add("ns2", Namespaces.XmlSignatureNamespace);
             return ns;
         }
 

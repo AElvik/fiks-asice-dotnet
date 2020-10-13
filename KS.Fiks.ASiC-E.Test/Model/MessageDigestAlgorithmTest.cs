@@ -13,7 +13,7 @@ namespace KS.Fiks.ASiC_E.Test.Model
         [SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1401:FieldsMustBePrivate", Justification = "Needs to be public to support XUnit")]
         public static IEnumerable<object[]> Algorithms = new[]
         {
-            new object[] { MessageDigestAlgorithm.SHA256 },
+            new object[] { MessageDigestAlgorithm.SHA256Desig },
             new object[] { MessageDigestAlgorithm.SHA384 },
             new object[] { MessageDigestAlgorithm.SHA512 }
         };

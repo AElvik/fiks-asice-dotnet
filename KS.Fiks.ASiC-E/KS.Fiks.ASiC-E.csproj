@@ -17,9 +17,9 @@
     <TargetFrameworks>netstandard2.1;netcoreapp3.1;net472</TargetFrameworks>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <AssemblyVersion>1.0.5.0</AssemblyVersion>
-    <FileVersion>1.0.5.0</FileVersion>
-    <Version>1.0.5</Version>
+    <AssemblyVersion>1.0.9.0</AssemblyVersion>
+    <FileVersion>1.0.9.0</FileVersion>
+    <Version>1.0.9</Version>
     <Company>Ks-Kommunesektorens Organisasjon, AElvik</Company>
     <Product>AE.Fiks.ASiC-E</Product>
     <PackageId>PO.Fiks.ASiC-E</PackageId>

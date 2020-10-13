@@ -32,7 +32,8 @@ namespace KS.Fiks.ASiC_E.Test.Model
                 using (var archive = AsiceArchive.Create(
                     zippedOutStream,
                     CadesManifestCreator.CreateWithSignatureFile(),
-                    TestdataLoader.ReadCertificatesForTest()))
+                    TestdataLoader.ReadCertificatesForTest(), 
+                    MessageDigestAlgorithm.SHA256Desig))
                 using (var fileStream = File.OpenRead(FileNameTestPdf))
                 {
                     archive.AddEntry(

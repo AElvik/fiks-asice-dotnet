@@ -13,7 +13,7 @@ namespace KS.Fiks.ASiC_E.Test.Model
         public void VerifyEquals()
         {
             var calculatedDigest = new byte[] { 0, 1, 0, 1 };
-            var digest = new DeclaredDigestFile(calculatedDigest, MessageDigestAlgorithm.SHA256, FileName, MimeType);
+            var digest = new DeclaredDigestFile(calculatedDigest, MessageDigestAlgorithm.SHA256Desig, FileName, MimeType);
             digest.Verify(new DeclaredDigestFile(calculatedDigest, digest.MessageDigestAlgorithm, FileName, MimeType)).Should().BeTrue();
         }
 
@@ -21,7 +21,7 @@ namespace KS.Fiks.ASiC_E.Test.Model
         public void VerifyEqualsDifferentAlgorithm()
         {
             var calculatedDigest = new byte[] { 0, 1, 0, 1 };
-            var digest = new DeclaredDigestFile(calculatedDigest, MessageDigestAlgorithm.SHA256, FileName, MimeType);
+            var digest = new DeclaredDigestFile(calculatedDigest, MessageDigestAlgorithm.SHA256Desig, FileName, MimeType);
             digest.Verify(new DeclaredDigestFile(calculatedDigest, MessageDigestAlgorithm.SHA384, FileName, MimeType)).Should().BeFalse();
         }
 
